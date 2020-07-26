@@ -6,5 +6,3 @@ set(CMAKE_CXX_STANDARD 17)
 add_subdirectory(core)
 add_subdirectory(gui)
 add_subdirectory(main)
-
-set_property (DIRECTORY PROPERTY VS_STARTUP_PROJECT Main) 

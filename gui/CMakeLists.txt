@@ -25,15 +25,19 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 find_package(Qt5 REQUIRED COMPONENTS Widgets Core Gui)
 
 file(GLOB_RECURSE Gui_src src/*.cpp)
+file(GLOB_RECURSE Gui_ui src/*.ui)
 file(GLOB_RECURSE Gui_include include/*.h)
 
 include_directories("include")
 find_package(Qt5Widgets)
 
 add_library(${PROJECT_NAME} STATIC ${Gui_src}
-                                   ${Gui_include})
+                                   ${Gui_include}
+                                   ${Gui_ui})
 
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} DKCore)
+include_directories("../core/include")
 
 if(MSVC)
   get_filename_component(QT5_BINARY_DIR ${QT_MOC_EXECUTABLE} DIRECTORY)
