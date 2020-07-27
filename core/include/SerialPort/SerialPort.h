@@ -2,7 +2,7 @@
 #include <QObject>
 #include <QtSerialPort/QSerialPort>
 
-class SerialPort
+class SerialPort : QObject
 {
 	Q_OBJECT
 public:
